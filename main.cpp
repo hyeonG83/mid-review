@@ -11,19 +11,26 @@
 
 int main()
 {
+	using namespace LEEHyeonGyeon2693251;
 	// 4-2-1. holiday형 객체3개를 선언하고 원하는 값으로 초기화합니다. 
-	holiday a;
-	holiday b;
-	holiday c;
+	holiday h1{"Newyear", dayOfYear{1,1}};
+	holiday h2{"Independdnce Day", dayOfYear{8,15}};
+	holiday h3{"Christmas", dayOfYear{12,25}};
 
-	// 4-2-2. holidayGroup형을 가리키는 포인터변수를 선언하고 원하는 값으로 초기화하여 동적으로 할당합니다.  
-	holidayGroup* g;
+	// 4-2-2. holidayGroup형을 가리키는 포인터변수를 선언하고 원하는 값으로 초기화하여 동적으로 할당합니다. 
+	holidayGroup* hgPtr{ new holidayGroup{"Korean Holiday"} };
 
-	// 4-2-3. holidayGroup형을 가리키는 포인터변수에서 addHoliday멤버함수를 호출하는데 인자를 4-2-1에서 선언한 객체를 넣습니다. 즉, addholiday멤버함수를 3번 호출합니다. 
+	// 4-2-3. holidayGroup형을 가리키는 포인터변수에서 addHoliday멤버함수를 호출하는데 인자를 4-2-1에서 선언한 객체를 넣습니다. 
+	// 즉, addholiday멤버함수를 3번 호출합니다. 
+	hgPtr -> addHoliday(h1);
+	hgPtr -> addHoliday(h2);
+	hgPtr -> addHoliday(h3); 
+
 	// 4-2-4. holidayGroup형을 가리키는 포인터변수에서 print멤버함수를 호출합니다. 
-	// 4-2-5. holidayGroup형을 가리키는 포인터변수에서 동적으로 할당한 메모리를 해제합니다. 
+	hgPtr-> print(); //holidayGroup에 있는 print function
 
-	delete g;
+	// 4-2-5. holidayGroup형을 가리키는 포인터변수에서 동적으로 할당한 메모리를 해제합니다. 
+	delete hgPtr;
 
 
 	return 0;
